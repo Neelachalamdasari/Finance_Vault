@@ -32,7 +32,6 @@
 ---
 
 
-```
 ## ⚙️ Installation & Setup
 
 ### 1. Prerequisites
@@ -44,12 +43,15 @@
 
 ```bash
 cd FinanceVault
-
+```
 # Install Server dependencies
+```bash
 cd server
 npm install
+```
 
 # Install Client dependencies
+```bash
 cd ../client
 npm install
 ```
@@ -59,8 +61,8 @@ Start the server:
 npm start
 ```
 
-Start the client:
 
+Start the client:
 ```bash
 npm start
 ```
@@ -70,23 +72,25 @@ npm start
 
 ```bash
 Create a .env file in the server directory:
-MONGO_URI=
-JWT_SECRET=
-EXCHANGE_RATE_API_KEY=
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_jwt_secret
+EXCHANGE_RATE_API_KEY=your_exchange_rate_api_key
 CLIENT_URL=http://localhost:3000
 PORT=5000
 DEFAULT_ADMIN_COMPANY_NAME=
 DEFAULT_ADMIN_NAME=
 DEFAULT_ADMIN_EMAIL=
 DEFAULT_ADMIN_PASSWORD=
-## 📁 Project Structure
+
+---
+### 📁 Project Structure
 
 ```
 FinanceVault/
 ├── client/                 # React SPA
 │   ├── src/
 │   │   ├── api/            # Axios instance & interceptors
-│   │   ├── components/     # Reusable UI
+│   │   ├── components/     # Reusable UI components
 │   │   ├── pages/          # Auth & Role-based Dashboards
 │   │   └── context/        # Global Auth State
 │   └── package.json
@@ -114,15 +118,14 @@ FinanceVault/
 
 ## 🔑 Access Matrix
 
-| Feature                       | Viewer | Analyst | Admin |
-| :---------------------------- | :----: | :-----: | :---: |
-| View High-Level KPIs          |   ✅   |   ✅    |   ✅   |
-| View Category Totals          |   ✅   |   ✅    |   ✅   |
-| View Raw Transaction Tables   |   ❌   |   ✅    |   ✅   |
-| Filter & Search Records       |   ❌   |   ✅    |   ✅   |
-| Create/Edit Financial Records |   ❌   |   ❌    |   ✅   |
-| Manage Team Members & Roles   |   ❌   |   ❌    |   ✅   |
-
+| Feature | Viewer | Analyst | Admin |
+| :--- | :---: | :---: | :---: |
+| View High-Level KPIs | ✅ | ✅ | ✅ |
+| View Category Totals | ✅ | ✅ | ✅ |
+| View Raw Transaction Tables | ❌ | ✅ | ✅ |
+| Filter & Search Records | ❌ | ✅ | ✅ |
+| Create/Edit Financial Records | ❌ | ❌ | ✅ |
+| Manage Team Members & Roles | ❌ | ❌ | ✅ |
 ---
 ## 🏗️ Technical Decisions
 
