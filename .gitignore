@@ -1,0 +1,17 @@
+# Node dependencies
+node_modules/
+
+# Security - CRITICAL
+server/.env
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Production Builds
+client/build/
+
+# Local Uploads
+server/uploads/
+*.traineddata
