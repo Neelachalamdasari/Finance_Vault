@@ -76,6 +76,48 @@ npm start
 ```
 
 ---
+---
+## 📖 API Documentation
+
+All protected routes require a valid JWT token to be passed in the `x-auth-token` header. The server utilizes an MVC architecture to ensure a clean separation of concerns between routes and controllers.
+
+---
+
+### 1. Authentication & Identity
+
+**Base Route:** `/api/auth`
+
+| Method | Endpoint | Access | Description |
+| :----- | :------- | :----- | :---------- |
+| POST | `/signup` | Public | Registers a user, links them to a default company, and sets the initial role to Viewer. |
+| POST | `/login` | Public | Validates credentials and returns a JWT. Blocks access if the account status is Inactive. |
+| GET | `/me` | Authenticated | Returns the logged-in user's profile, including their company and role. |
+
+---
+
+### 2. Financial Transactions & Analytics
+
+**Base Route:** `/api/transactions`
+
+| Method | Endpoint | Access Role | Description |
+| :----- | :------- | :---------- | :---------- |
+| GET | `/summary` | Admin, Analyst, Viewer | Aggregation Pipeline: Returns totalIncome, totalExpenses, and netBalance. |
+| GET | `/` | Admin, Analyst | Returns transactions with server-side pagination and regex category filtering. |
+| POST | `/` | Admin, Analyst | Creates a new record scoped to the user's companyID. |
+| PUT | `/:id` | Admin, Analyst | Updates a record after validating it belongs to the user's company. |
+| DELETE | `/:id` | Admin | Permanently removes a transaction record from the database. |
+
+---
+
+### 3. User & Admin Management
+
+**Base Route:** `/api/users`
+
+| Method | Endpoint | Access Role | Description |
+| :----- | :------- | :---------- | :---------- |
+| GET | `/` | Admin | Lists all users within the Admin's specific organization. |
+| PATCH | `/:id/status` | Admin | Toggles a user's status between Active and Inactive for real-time security. |
+---
 
 ## 📁 Project Structure
 
